@@ -1,0 +1,18 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="class-container">
+    <div class="container">
+        <p>Welcome, <%= user.firstName %></p>
+        <% if(items.length) { %>
+            <% items.forEach(item => { %>
+                <a href="/items/<%= item._id %>">
+                    <p><%= item.title %></p>
+                </a>
+            <% }) %>
+        <% } else { %>
+            <p>You haven't created any listings yet.</p>
+        <% } %>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

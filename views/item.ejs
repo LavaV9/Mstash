@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+
+<div class = "container">
+    <img height="400px" src="/images/<%= item.image %>" alt="<%= item.title %>">
+    <div class="details">
+        <p><%= item.title %></p>
+        <p>Condition: <%= item.condition %></p>
+        <p>Price: $<%= item.price %></p>
+        <p>Seller: <%= item.seller %></p>
+        <p><%= item.details %></p>
+        <form action="/items/<%= item.id %>/edit" method="GET">
+            <button type="submit">Edit</button>
+        </form>
+        <form action="/items/<%= item.id %>?_method=DELETE" method="POST">
+            <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+        </form>
+        <a href="/items" class="btn">Back To Browse</a>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
